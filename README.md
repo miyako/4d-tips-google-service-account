@@ -101,6 +101,13 @@ where ``$assertion`` is the signed JWT
   
   ``Content-Type``:``application/x-www-form-urlencoded``
   
+- If successful, the response will include an access token
+
+- The header should include
+
+``Authorization``: ``$token.token_type+" "+$token.access_token``
+
+where ``$token`` is the token obtained in the previous step to call an API
 
 
 
