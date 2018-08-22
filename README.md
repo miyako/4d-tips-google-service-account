@@ -83,13 +83,24 @@ Several standard functions are required for the client application.
   - ``scope``: the scope granted to the service account
   - ``iat``: current UNIX timestamp
   - ``exp``: ``3600`` seconds added to ``iat``
+  - ``kid``: ``private_key_id``  from the downloaded ``json`` file
+  - ``typ``: ``"JWT"``
+  - ``alg``: ``"RS256"``
+  
+- Perform an HTTP ``POST``
 
-Perform an HTTP ``POST``
-
-The body should be 
+  - The body should be 
 
 ```
 grant_type="+URL_Escape ($grant_type)+"&assertion="+$assertion
 ```
 
 where ``$assertion`` is the signed JWT
+
+  - The header should include
+  
+  ``Content-Type``:``application/x-www-form-urlencoded``
+  
+
+
+
