@@ -107,7 +107,4 @@ where ``$assertion`` is the signed JWT
 
 ``Authorization``: ``$token.token_type+" "+$token.access_token``
 
-where ``$token`` is the token obtained in the previous step to call an API
-
-
-
+where ``$token`` is the token obtained in the previous step
