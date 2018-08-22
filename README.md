@@ -13,3 +13,11 @@
 - Select or create a project
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443436-a012aa00-a612-11e8-996f-1d36f14d1d76.png" />
+
+- Create a new service account
+  - Service account name: ``any``
+  - Service account ID: ``any``
+  - Project role: **Owner**
+  - [x] **Furnish a new private key**
+    - [x] **JSON**
+  - [x] **Enable G Suite Domain-wide Delegation**
