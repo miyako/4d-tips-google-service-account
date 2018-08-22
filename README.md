@@ -21,3 +21,5 @@
   - Furnish a new private key: **true**
     - Key type: **JSON**
   - Enable G Suite Domain-wide Delegation: **true**
+
+<img width="500" src="https://user-images.githubusercontent.com/1725068/44443658-d7ce2180-a613-11e8-8991-fe406d9f0390.png" />
