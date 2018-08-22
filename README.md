@@ -69,5 +69,5 @@ Several standard functions are required for the client application.
 
 * [Unix_Timestamp](https://github.com/miyako/4d-tips-google-service-account/blob/master/Unix_Timestamp.txt)
 
-* [* JWT (JSON Web Token) with ``RS256``](https://github.com/miyako/4d-plugin-jwt)
+* [JWT (JSON Web Token) with ``RS256``](https://github.com/miyako/4d-plugin-jwt)
 
