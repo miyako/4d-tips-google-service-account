@@ -23,4 +23,10 @@
 
 - Store the ``json`` file locally (you will never be able to generate it again))
 - Navigate to [**APIs & Services**](https://console.developers.google.com/apis)
+- Click **ENABLE APIS AND SERVICES**
 
+<img width="500" src="https://user-images.githubusercontent.com/1725068/44443863-f7b21500-a614-11e8-8269-7e37069b6d2e.png" />
+
+- Find **Admin SDK**
+
+<img width="500" src="https://user-images.githubusercontent.com/1725068/44443895-0f899900-a615-11e8-8ecc-823634f29d11.png" />
