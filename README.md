@@ -27,11 +27,13 @@
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443863-f7b21500-a614-11e8-8269-7e37069b6d2e.png" />
 
-- Find **Admin SDK**
+- Find the necessary **SDK**
 
+  - For example, to use the [**Directory API**](https://developers.google.com/admin-sdk/directory/) to manage users, find **Admin SDK**
+  
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443895-0f899900-a615-11e8-8ecc-823634f29d11.png" />
 
-- Enable **Admin SDK**
+- Enable the **SDK**
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443946-4cee2680-a615-11e8-849f-e48057c28ab3.png" />
 
@@ -49,9 +51,11 @@
 
 - Select [**Manage API client access**](https://admin.google.com/ManageOauthClients)
 
-- 
-
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44444294-19140080-a617-11e8-940d-13d14463c664.png" />
+
+- Register the necessary **scopes**
+
+  - For example, to use the [**Directory API**](https://developers.google.com/admin-sdk/directory/) to manage users, register the following:
 
 ```
 https://apps-apis.google.com/a/feeds/domain/,https://www.googleapis.com/auth/admin.directory.user
