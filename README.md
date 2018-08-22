@@ -34,3 +34,7 @@
 - Enable **Admin SDK**
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443946-4cee2680-a615-11e8-849f-e48057c28ab3.png" />
+
+- Login to [**Google Admin**](https://admin.google.com/) with an admin account
+
+<img width="500" src="https://user-images.githubusercontent.com/1725068/44444060-d43b9a00-a615-11e8-89a5-e60cc3fe6097.png" />
