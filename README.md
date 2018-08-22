@@ -18,6 +18,6 @@
   - Service account name: ``any``
   - Service account ID: ``any``
   - Project role: **Owner**
-  - [x] **Furnish a new private key**
-    - [x] **JSON**
-  - [x] **Enable G Suite Domain-wide Delegation**
+  - **Furnish a new private key**
+    - **JSON**
+  - **Enable G Suite Domain-wide Delegation**
