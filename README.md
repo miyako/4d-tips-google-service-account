@@ -53,8 +53,8 @@
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44444294-19140080-a617-11e8-940d-13d14463c664.png" />
 
-- Register the necessary **scopes**
-
+- Register the necessary [**scopes**](https://developers.google.com/identity/protocols/googlescopes)
+  - Client Name: either the service account or the client ID
   - For example, to use the [**Directory API**](https://developers.google.com/admin-sdk/directory/) to manage users, register the following:
 
 ```
