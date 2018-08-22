@@ -74,7 +74,7 @@ Several standard functions are required for the client application.
 ## How to make a service account call
 
 - Load ``private_key`` from the downloaded ``json`` file
-- use the key to create a JWT claim
+- use the key to create a signed JWT
   - ``sub``: admin account to impersonate 
   - ``aud``: ``token_uri`` from the downloaded ``json`` file
   - ``iss``: ``client_email`` from the downloaded ``json`` file (the service account)
