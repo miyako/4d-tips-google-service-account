@@ -4,4 +4,4 @@
 
 #### Checklist 
 
-- Login to Google with G Suite admin account
+- Login to **Google API Console** with an **admin** account and navigate to [**Service accounts**](https://console.developers.google.com/iam-admin/serviceaccounts?supportedpurview=project)
