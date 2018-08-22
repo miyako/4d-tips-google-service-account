@@ -8,3 +8,4 @@
 
 - Navigate to [**IAM and admin**](https://console.developers.google.com/iam-admin)
 
+- Select [**Service accounts**](https://console.developers.google.com/iam-admin/serviceaccounts)
