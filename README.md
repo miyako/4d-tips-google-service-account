@@ -16,7 +16,7 @@
   - Service account ID: ``any``
   - Project role: **Owner**
   - Furnish a new private key: **true**
-    - Key type: **JSON**
+  - Key type: **JSON**
   - Enable G Suite Domain-wide Delegation: **true**
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443658-d7ce2180-a613-11e8-8991-fe406d9f0390.png" />
@@ -30,3 +30,7 @@
 - Find **Admin SDK**
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443895-0f899900-a615-11e8-8ecc-823634f29d11.png" />
+
+- Enable **Admin SDK**
+
+<img width="500" src="https://user-images.githubusercontent.com/1725068/44443946-4cee2680-a615-11e8-849f-e48057c28ab3.png" />
