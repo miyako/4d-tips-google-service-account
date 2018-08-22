@@ -21,7 +21,7 @@
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443658-d7ce2180-a613-11e8-8991-fe406d9f0390.png" />
 
-- Store the ``json`` file locally (you will never be able to generate it again))
+- Store the ``json`` file locally (you will never be able to generate it again)
 - Navigate to [**APIs & Services**](https://console.developers.google.com/apis)
 - Click **ENABLE APIS AND SERVICES**
 
@@ -71,3 +71,25 @@ Several standard functions are required for the client application.
 
 * [JWT (JSON Web Token) with ``RS256``](https://github.com/miyako/4d-plugin-jwt)
 
+## How to make a service account call
+
+- Load ``private_key`` from the downloaded ``json`` file
+- use the key to create a JWT claim
+  - ``sub``: admin account to impersonate 
+  - ``aud``: ``token_uri`` from the downloaded ``json`` file
+  - ``iss``: ``client_email`` from the downloaded ``json`` file (the service account)
+  - ``endpoint``: ``https://oauth2.googleapis.com/token``
+  - ``grant_type``: ``urn:ietf:params:oauth:grant-type:jwt-bearer``
+  - ``scope``: the scope granted to the service account
+  - ``iat``: current UNIX timestamp
+  - ``exp``: ``3600`` seconds added to ``iat``
+
+Perform an HTTP ``POST``
+
+The body should be 
+
+```
+grant_type="+URL_Escape ($grant_type)+"&assertion="+$assertion
+```
+
+where ``$assertion`` is the signed JWT
