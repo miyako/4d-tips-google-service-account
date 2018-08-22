@@ -5,11 +5,8 @@
 #### Checklist 
 
 - Login to [**Google API Console**](https://console.developers.google.com/) with an **admin** account
-
 - Navigate to [**IAM and admin**](https://console.developers.google.com/iam-admin)
-
 - Select [**Service accounts**](https://console.developers.google.com/iam-admin/serviceaccounts)
-
 - Select or create a project
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443436-a012aa00-a612-11e8-996f-1d36f14d1d76.png" />
@@ -23,3 +20,7 @@
   - Enable G Suite Domain-wide Delegation: **true**
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443658-d7ce2180-a613-11e8-8991-fe406d9f0390.png" />
+
+- Store the ``json`` file locally (you will never be able to generate it again))
+- Navigate to [**APIs & Services**](https://console.developers.google.com/apis)
+
