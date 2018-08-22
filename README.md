@@ -35,6 +35,30 @@
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443946-4cee2680-a615-11e8-849f-e48057c28ab3.png" />
 
-- Login to [**Google Admin**](https://admin.google.com/) with an admin account
+- Login to [**Google Admin Console**](https://admin.google.com/) with an admin account
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44444060-d43b9a00-a615-11e8-89a5-e60cc3fe6097.png" />
+
+- Select **Security**
+
+<img width="500" src="https://user-images.githubusercontent.com/1725068/44444126-42805c80-a616-11e8-968a-a6465da7cb66.png" />
+
+- Select **Advanced settings**
+
+<img width="500" src="https://user-images.githubusercontent.com/1725068/44444180-9428e700-a616-11e8-9271-b81c446a4c44.png" />
+
+- Select [**Manage API client access**](https://admin.google.com/ManageOauthClients)
+
+- 
+
+<img width="500" src="https://user-images.githubusercontent.com/1725068/44444294-19140080-a617-11e8-940d-13d14463c664.png" />
+
+```
+https://apps-apis.google.com/a/feeds/domain/,https://www.googleapis.com/auth/admin.directory.user
+```
+
+
+
+
+
+
