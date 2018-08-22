@@ -61,6 +61,11 @@
 https://apps-apis.google.com/a/feeds/domain/,https://www.googleapis.com/auth/admin.directory.user
 ```
 
+## Modules
+
+Several standard functions are required for the client application.
+
+* [URL_Escape](https://github.com/miyako/4d-tips-google-service-account/blob/master/URL_Escape.txt)
 
 
 
