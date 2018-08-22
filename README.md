@@ -9,3 +9,7 @@
 - Navigate to [**IAM and admin**](https://console.developers.google.com/iam-admin)
 
 - Select [**Service accounts**](https://console.developers.google.com/iam-admin/serviceaccounts)
+
+- Select or create a project
+
+<img width="500" src="https://user-images.githubusercontent.com/1725068/44443436-a012aa00-a612-11e8-996f-1d36f14d1d76.png" />
