@@ -4,4 +4,4 @@
 
 #### Checklist 
 
-[ ]Login to Google with G Suite admin account
+[ ] Login to Google with G Suite admin account
