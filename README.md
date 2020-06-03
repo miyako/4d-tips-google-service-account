@@ -1,3 +1,4 @@
+
 #### [Using OAuth 2.0 for Server to Server Applications](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
 
 > The Google OAuth 2.0 system supports server-to-server interactions such as those between a web application and a Google service. For this scenario you need a service account, which is an account that belongs to your application instead of to an individual end user. Your application calls Google APIs on behalf of the service account, so users aren't directly involved.
@@ -12,14 +13,21 @@
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443436-a012aa00-a612-11e8-996f-1d36f14d1d76.png" />
 
 - Create a new service account
-  - Service account name: ``any``
-  - Service account ID: ``any``
-  - Project role: **Owner**
-  - Furnish a new private key: **true**
-  - Key type: **JSON**
-  - Enable G Suite Domain-wide Delegation: **true**
-
-<img width="500" src="https://user-images.githubusercontent.com/1725068/44443658-d7ce2180-a613-11e8-8991-fe406d9f0390.png" />
+  - Service account name: ``(any)``
+  - Service account ID: ``(any, will auto-fill)``
+  - Click **Create**
+  <img width="1372" alt="create-service-account-1" src="https://user-images.githubusercontent.com/10867016/83682531-067f7700-a5b2-11ea-8572-761e5d1079b6.png">
+- Choose the role
+  - **Project->Owner**
+  - Click **Continue**
+<img width="1354" alt="create-service-account-2" src="https://user-images.githubusercontent.com/10867016/83682535-08e1d100-a5b2-11ea-9f1d-89a93064e068.png">
+- Click **Create Key**
+<img width="1917" alt="create-service-account-3" src="https://user-images.githubusercontent.com/10867016/83682539-0a12fe00-a5b2-11ea-8e76-43a2c2c2eeaf.png">
+- Choose the key options
+	- Key type: **JSON**
+	- Click **Create**
+<img width="1899" alt="create-service-account-4" src="https://user-images.githubusercontent.com/10867016/83682540-0aab9480-a5b2-11ea-9ec6-d743ef174bb2.png">
+  
 
 - Store the ``json`` file locally (you will never be able to generate it again)
 - Navigate to [**APIs & Services**](https://console.developers.google.com/apis)
