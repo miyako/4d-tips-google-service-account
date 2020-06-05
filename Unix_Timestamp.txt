@@ -47,7 +47,7 @@ If (Match regex:C1019("((\\d{4})-(\\d{2})-(\\d{2}))T(\\d{2}:\\d{2}:\\d{2})\\.(\\
 	$time:=(0+Time:C179(Substring:C12($timestamp;$pos{5};$len{5})))
 	$time:=$time+(($dd-1)*86400)  //days until yesterday + seconds today
 	$time:=$time+(($yyyy-1970)*31536000)  //years until last year
-	$time:=$time+((($yyyy-1968)\4)*86400)  //number of february 29ths until last year
+	$time:=$time+((($yyyy-1-1968)\4)*86400)  //number of february 29ths until last year
 	
 End if 
 
