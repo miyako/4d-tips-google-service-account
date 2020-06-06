@@ -17,15 +17,18 @@
   - Service account ID: ``(any, will auto-fill)``
   - Click **Create**
   <img width="1372" alt="create-service-account-1" src="https://user-images.githubusercontent.com/10867016/83682531-067f7700-a5b2-11ea-8572-761e5d1079b6.png">
+  
 - Choose the role
   - **Project->Owner**
   - Click **Continue**
 <img width="1354" alt="create-service-account-2" src="https://user-images.githubusercontent.com/10867016/83682535-08e1d100-a5b2-11ea-9f1d-89a93064e068.png">
+
 - Click **Create Key**
 <img width="1917" alt="create-service-account-3" src="https://user-images.githubusercontent.com/10867016/83682539-0a12fe00-a5b2-11ea-8e76-43a2c2c2eeaf.png">
+
 - Choose the key options
-	- Key type: **JSON**
-	- Click **Create**
+  - Key type: **JSON**
+  - Click **Create**
 <img width="1899" alt="create-service-account-4" src="https://user-images.githubusercontent.com/10867016/83682540-0aab9480-a5b2-11ea-9ec6-d743ef174bb2.png">
   
 
@@ -35,7 +38,7 @@
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443863-f7b21500-a614-11e8-8269-7e37069b6d2e.png" />
 
-- Find the necessary **SDK**
+- Find the necessary [**SDK**](https://developers.google.com/identity/protocols/oauth2/scopes)
 
   - For example, to use the [**Directory API**](https://developers.google.com/admin-sdk/directory/) to manage users, find **Admin SDK**
   
@@ -45,74 +48,123 @@
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443946-4cee2680-a615-11e8-849f-e48057c28ab3.png" />
 
-- Login to [**Google Admin Console**](https://admin.google.com/) with an admin account
+- Delegate your app to act on behalf of any user in your domain
+  - Login to [**Google Admin Console**](https://admin.google.com/) with an admin account
 
-<img width="500" src="https://user-images.githubusercontent.com/1725068/44444060-d43b9a00-a615-11e8-89a5-e60cc3fe6097.png" />
+  <img width="500" src="https://user-images.githubusercontent.com/1725068/44444060-d43b9a00-a615-11e8-89a5-e60cc3fe6097.png" />
 
-- Select **Security**
+  - Select **Security**
 
-<img width="500" src="https://user-images.githubusercontent.com/1725068/44444126-42805c80-a616-11e8-968a-a6465da7cb66.png" />
+  <img width="500" src="https://user-images.githubusercontent.com/1725068/44444126-42805c80-a616-11e8-968a-a6465da7cb66.png" />
 
-- Select **Advanced settings**
+  - Select **Advanced settings**
 
-<img width="500" src="https://user-images.githubusercontent.com/1725068/44444180-9428e700-a616-11e8-9271-b81c446a4c44.png" />
+  <img width="500" src="https://user-images.githubusercontent.com/1725068/44444180-9428e700-a616-11e8-9271-b81c446a4c44.png" />
 
-- Select [**Manage API client access**](https://admin.google.com/ManageOauthClients)
+  - Select [**Manage API client access**](https://admin.google.com/ManageOauthClients)
 
-<img width="500" src="https://user-images.githubusercontent.com/1725068/44444294-19140080-a617-11e8-940d-13d14463c664.png" />
+  <img width="500" src="https://user-images.githubusercontent.com/1725068/44444294-19140080-a617-11e8-940d-13d14463c664.png" />
 
-- Register the necessary [**scopes**](https://developers.google.com/identity/protocols/googlescopes)
-  - Client Name: either the service account or the client ID
-  - For example, to use the [**Directory API**](https://developers.google.com/admin-sdk/directory/) to manage users, register the following:
+  - Register the necessary [**scopes**](https://developers.google.com/identity/protocols/googlescopes)
+    - Client Name: either the service account or the client ID
+    - Enter the API scopes to grant.  **Note they are comma-delimited here** **You will need these later**.  For example, to use the [**Directory API**](https://developers.google.com/admin-sdk/directory/) to manage users, register the following:
+    `https://apps-apis.google.com/a/feeds/domain/,https://www.googleapis.com/auth/admin.directory.user`
 
-```
-https://apps-apis.google.com/a/feeds/domain/,https://www.googleapis.com/auth/admin.directory.user
-```
+## Storing Your Key And Keeping It Safe
+**Your key should remain private.  If you are using version control, such as *git*, you should keep the key out of your repository so that you do not accidentally share it.**
+One way to do this is to put it in a private folder that will not be included in your repository.
+1. In the **Resources** folder for your project, add a folder called **Private**
+2. In your **.gitignore** file for your project, add the follwing line:
+``Resources/Private``
+3. Put your key into that folder
+4. Check the updates to your repository to make sure that your key does not appear in the list of added/updated files.
 
 ## Modules
 
 Several standard functions are required for the client application.
 
-* [URL_Escape](https://github.com/miyako/4d-tips-google-service-account/blob/master/URL_Escape.txt)
+* [URL_Escape (Project Method in this repo)](https://github.com/miyako/4d-tips-google-service-account/blob/master/URL_Escape.txt)
 
-* [Unix_Timestamp](https://github.com/miyako/4d-tips-google-service-account/blob/master/Unix_Timestamp.txt)
+* [Unix_Timestamp (Project Method in this repo)](https://github.com/miyako/4d-tips-google-service-account/blob/master/Unix_Timestamp.txt)
 
-* [JWT (JSON Web Token) with ``RS256``](https://github.com/miyako/4d-plugin-jwt)
+* [JWT Plugin (JSON Web Token) with ``RS256``](https://github.com/miyako/4d-plugin-jwt)
 
 ## How to make a service account call
 
-- Load ``private_key`` from the downloaded ``json`` file
-- use the key to create a signed JWT
-  - ``sub``: admin account to impersonate 
-  - ``aud``: ``token_uri`` from the downloaded ``json`` file
-  - ``iss``: ``client_email`` from the downloaded ``json`` file (the service account)
-  - ``endpoint``: ``https://oauth2.googleapis.com/token``
-  - ``grant_type``: ``urn:ietf:params:oauth:grant-type:jwt-bearer``
-  - ``scope``: the scope granted to the service account
-  - ``iat``: current UNIX timestamp
-  - ``exp``: ``3600`` seconds added to ``iat``
-  - ``kid``: ``private_key_id``  from the downloaded ``json`` file
-  - ``typ``: ``"JWT"``
-  - ``alg``: ``"RS256"``
+1. Load ``private_key`` from the downloaded ``json`` file into a variable
+
+  ***Example:***
+```
+    $keyFile:=File("/RESOURCES/Private/<yourfilename>.json")
+    ASSERT ($keyFile.exists)
+```
+2. Use the key to create a signed JWT using the [JWT  Plugin](https://github.com/miyako/4d-plugin-jwt)
+
+  | Field | Description |
+  |--|--|
+  | iss | ``client_email`` from the downloaded ``json`` file |
+  | scope | **space-delimited** list of scope URL's the application requests |
+  | aud | ``token_uri`` from the downloaded ``json`` file |
+  | iat | ``Unix_timestamp //Project Method`` |
+  | exp |  `` iat + 3600`` |  
+  | sub | The email address of the user the app is using for this operation|
+  | endpoint | ``https://oauth2.googleapis.com/token``|
+  | grant_type | ``urn:ietf:params:oauth:grant-type:jwt-bearer``|
+  | kid | ``private_key_id``  from the downloaded ``json`` file
+
+  ***Example:***
+```
+  $username:="<EMAIL OF USER ACCOUNT YOU ARE ACTING ON BEHALF OF>"
+  $ohead:=New object("alg";"RS256";"typ";"JWT") //header
+
+    //<build the JWT>
+    $keyJSON:=JSON Parse($keyFile.getText())
+    $ojwt:=New object()
+    $ojwt.iss:=$keyJSON.client_email
+    $ojwt.scope:="https://www.googleapis.com/auth/admin.directory.user"
+    $ojwt.aud:=$keyJSON.token_uri
+    $ojwt.iat:=Unix_Timestamp
+    $ojwt.exp:=$ojwt.iat+3600  // an hour from now
+    $ojwt.sub:=$username
+    $ojwt.endpoint:="https://oauth2.googleapis.com/token"
+    $ojwt.grantType:="urn:ietf:params:oauth:grant-type:jwt-bearer"
+    $ojwt.kid:=$keyJSON.private_key_id
+
+    $privateKey:=$keyJSON.private_key
+    $assertion:=JWT Sign (JSON Stringify($ohead);JSON Stringify($ojwt);$privateKey)
+    //</build the JWT>
+```
   
-- Perform an HTTP ``POST``
-
-  - The body should be 
-
-```
-grant_type="+URL_Escape ($grant_type)+"&assertion="+$assertion
-```
-
-where ``$assertion`` is the signed JWT
-
+4. Request an access token.
+  - This is done with an  HTTP ``POST`` request to 
+    ``https://oauth2.googleapis.com/token``
   - The header should include
+     `Content-Type:application/x-www-form-urlencoded`
+
+  ***Example:***
+```
+  ARRAY TEXT($aHeaderNames;1)
+  ARRAY TEXT($aHeaderValues;1)
+  $aHeaderNames{1}:="Content-Type"
+  $aHeaderValues{1}:="application/x-www-form-urlencoded"
+
+  $body:="grant_type="+URL_Escape ("urn:ietf:params:oauth:grant-type:jwt-bearer")+"&assertion="+$assertion
+  $url:="https://oauth2.googleapis.com/token"
   
-  ``Content-Type``:``application/x-www-form-urlencoded``
+  C_OBJECT($token)
+  $status:=HTTP Request(HTTP POST method;$url;$body;$token;$aHeaderNames;$aHeaderValues)
   
-- If successful, the response will include an access token
+  // if $status = 200, $token will contain your access token
+```
+ 
+5. Follow-on interaction with the server includes the access token in the header.
 
-- The header should include
+  ***Example:***
+    `$header:= "Authorization: " + $token.token_type + " "+$token.access_token`
 
-``Authorization``: ``$token.token_type+" "+$token.access_token``
+6. Plan for the access token to expire.  Your code should assume that it will occasionally need to repeat from step 2.
 
-where ``$token`` is the token obtained in the previous step
+# References
+- [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2)
+- [Using OAuth 2.0 for Server to Server Applications](https://developers.google.com/identity/protocols/oauth2/service-account#httprest)
+- [Control G Suite API access with domain-wide delegation](https://support.google.com/a/answer/162106)
