@@ -1,4 +1,5 @@
 
+
 #### [Using OAuth 2.0 for Server to Server Applications](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
 
 > The Google OAuth 2.0 system supports server-to-server interactions such as those between a web application and a Google service. For this scenario you need a service account, which is an account that belongs to your application instead of to an individual end user. Your application calls Google APIs on behalf of the service account, so users aren't directly involved.
@@ -57,13 +58,11 @@
 
   <img width="500" src="https://user-images.githubusercontent.com/1725068/44444126-42805c80-a616-11e8-968a-a6465da7cb66.png" />
 
-  - Select **Advanced settings**
+  - Select **API Controls->Domain-Wide Delegation**
 
-  <img width="500" src="https://user-images.githubusercontent.com/1725068/44444180-9428e700-a616-11e8-9271-b81c446a4c44.png" />
-
-  - Select [**Manage API client access**](https://admin.google.com/ManageOauthClients)
-
-  <img width="500" src="https://user-images.githubusercontent.com/1725068/44444294-19140080-a617-11e8-940d-13d14463c664.png" />
+  <img width="750" src="https://user-images.githubusercontent.com/10867016/84146179-423e9480-aa29-11ea-92f9-874f03aeec02.png" />
+- Click **Add New**
+<img width="500" src="https://user-images.githubusercontent.com/10867016/84146700-1a036580-aa2a-11ea-83f2-c594f5df64e8.png"/>
 
   - Register the necessary [**scopes**](https://developers.google.com/identity/protocols/googlescopes)
     - Client Name: either the service account or the client ID
