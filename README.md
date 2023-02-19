@@ -1,6 +1,37 @@
-#### [Using OAuth 2.0 for Server to Server Applications](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
-
+# Background
 > The Google OAuth 2.0 system supports server-to-server interactions such as those between a web application and a Google service. For this scenario you need a service account, which is an account that belongs to your application instead of to an individual end user. Your application calls Google APIs on behalf of the service account, so users aren't directly involved.
+
+
+
+## Google Documents on this process:
+
+* [Using OAuth 2.0 for Server to Server Applications](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
+
+* [Develop on Google Workspace](https://developers.google.com/workspace/guides/get-started)
+
+
+
+# Contents
+
+["Quick" Start](#quick-start)
+
+[Storing Your Key And Keeping It Safe](#storing-your-key-and-keeping-it-safe)
+
+[Modules, Components, Code Samples](#module-components-code-samples)
+
+[How To Make A Service Account Call, Manually](#how-to-make-a-service-account-call-manually)
+
+[References](#references)
+
+
+
+
+
+# "Quick" Start<a name="quick-start"></a>
+
+There are a number of steps involved. Here they are, condensed:
+
+
 
 ## Setup 
 
@@ -27,7 +58,7 @@
   
   - **Project->Owner**
 - Click **Continue**
-<img width="1354" alt="create-service-account-2" src="https://user-images.githubusercontent.com/10867016/83682535-08e1d100-a5b2-11ea-9f1d-89a93064e068.png">
+  <img width="1354" alt="create-service-account-2" src="https://user-images.githubusercontent.com/10867016/83682535-08e1d100-a5b2-11ea-9f1d-89a93064e068.png">
   
   
   
@@ -39,9 +70,9 @@
 - Choose the key options
   - Key type: **JSON**
   - Click **Create**
-<img width="1899" alt="create-service-account-4" src="https://user-images.githubusercontent.com/10867016/83682540-0aab9480-a5b2-11ea-9ec6-d743ef174bb2.png">
+  <img width="1899" alt="create-service-account-4" src="https://user-images.githubusercontent.com/10867016/83682540-0aab9480-a5b2-11ea-9ec6-d743ef174bb2.png">
   
-
+  
   
 - Store the ``json`` file locally (you will never be able to generate it again)
 
@@ -62,7 +93,7 @@
 
 <img width="500" src="https://user-images.githubusercontent.com/1725068/44443946-4cee2680-a615-11e8-849f-e48057c28ab3.png" />
 
-* If you are not going to use one of the API's that require an **API Key** (such as Calendar), you can skip this step.  Otherwise, to create an **API KEY**
+* If the API you wish to use does not specifically say that it requires an ***API KEY***, then [skip to \"2. Google Domain Admin Console\"](#google-domain-admin-console). Some API's, such as Calendar require an **API Key**.
 
   * Go to [APIs & Services -> Credentials](https://console.cloud.google.com) 
 
@@ -97,7 +128,7 @@
 
   
 
-### 2. Google Domain Admin Console
+### 2. Google Domain Admin Console<a name="google-domain-admin-console"></a>
 
 - Delegate your app to act on behalf of any user in your domain
   - Login to [**Google Admin Console**](https://admin.google.com/) with an admin account
@@ -115,39 +146,55 @@
   
   
 - Click **Add New**
-<img width="500" src="https://user-images.githubusercontent.com/10867016/84146700-1a036580-aa2a-11ea-83f2-c594f5df64e8.png"/>
+  <img width="500" src="https://user-images.githubusercontent.com/10867016/84146700-1a036580-aa2a-11ea-83f2-c594f5df64e8.png"/>
 
   
   
   - Register the necessary [**scopes**](https://developers.google.com/identity/protocols/googlescopes)
     - Client Name: either the service account or the client ID
-    - Enter the API scopes to grant.  **Note they are comma-delimited here** **You will need these later**.  For example, to use the [**Directory API**](https://developers.google.com/admin-sdk/directory/) to manage users, register the following:
+    - Enter the API scopes to grant.  **Note they are comma-delimited here. You will need these later**.  For example, to use the [**Directory API**](https://developers.google.com/admin-sdk/directory/) to manage users, register the following:
     `https://apps-apis.google.com/a/feeds/domain/,https://www.googleapis.com/auth/admin.directory.user`
     
-    
+    * **Whenever you want to add new scopes to your app, you will have to both add them here and on the [Google Cloud Console API Dashboard](https://console.cloud.google.com/apis/dashboard).**
 
-## Storing Your Key And Keeping It Safe
+
+
+# Storing Your Key And Keeping It Safe<a name="storing-your-key-and-keeping-it-safe"></a>
+
 **Your key should remain private.  If you are using version control, such as *git*, you should keep the key out of your repository so that you do not accidentally share it.**
 One way to do this is to put it in a private folder that will not be included in your repository.
 1. In the **Resources** folder for your project, add a folder called **Private**
 2. In your **.gitignore** file for your project, add the follwing line:
 ``Resources/Private``
 3. Put your key into that folder
-4. Check the updates to your repository to make sure that your key does not appear in the list of added/updated files.
+4. **Check the modified file list for your repository to make sure that your .gitignore includes `Resources/Private` and that your key does not appear in the list.**
 
 
 
-## Modules
+# Modules/Components/Code Samples<a name="module-components-code-samples"></a>
 
-Several standard functions are required for the client application.
+There is code that will make connecting to Google easier, now that you have done the above:
 
-* [URL_Escape (Project Method in this repo)](https://github.com/miyako/4d-tips-google-service-account/blob/master/URL_Escape.txt)
+1. [Mikey's Google Workspace Repo](https://github.com/macMikey/4d-google-workspace), which contains classes that should make your job easier
 
-* [Unix_Timestamp (Project Method in this repo)](https://github.com/miyako/4d-tips-google-service-account/blob/master/Unix_Timestamp.txt)
+2. If you prefer to do it yourself, the following methods and components, some of which appear in this repo:
 
-* [JWT Plugin (JSON Web Token) with ``RS256``](https://github.com/miyako/4d-plugin-jwt)
+   * [URL_Escape (Project Method in this repo)](https://github.com/miyako/4d-tips-google-service-account/blob/master/URL_Escape.txt)
 
-## How to make a service account call
+
+   * [Unix_Timestamp (Project Method in this repo)](https://github.com/miyako/4d-tips-google-service-account/blob/master/Unix_Timestamp.txt)
+
+
+   * [JWT Plugin (JSON Web Token) with ``RS256``](https://github.com/miyako/4d-plugin-jwt)
+
+
+
+
+# How To Make A Service Account Call, Manually<a name="how-to-make-a-service-account-call-manually"></a>
+
+If you are not going to use a pre-built class to access Google (such as [Mikey's Google Workspace Repo](https://github.com/macMikey/4d-google-workspace))
+
+
 
 1. Load ``private_key`` from the downloaded ``json`` file into a variable
 
@@ -222,7 +269,11 @@ Several standard functions are required for the client application.
 
 6. Plan for the access token to expire.  Your code should assume that it will occasionally need to repeat from step 2.
 
-# References
+
+
+# References<a name="references"></a>
+
 - [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2)
 - [Using OAuth 2.0 for Server to Server Applications](https://developers.google.com/identity/protocols/oauth2/service-account#httprest)
 - [Control G Suite API access with domain-wide delegation](https://support.google.com/a/answer/162106)
+- [Develop on Google Workspace](https://developers.google.com/workspace/guides/get-started)
